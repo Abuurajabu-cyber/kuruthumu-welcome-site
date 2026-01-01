@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuruthumu WiFi - Karibu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #1e3a8a, #2563eb);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    p {
+      color: #e0e7ff;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+    button {
+      background-color: white;
+      color: #1e3a8a;
+      font-weight: bold;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      transform: scale(1.05);
+      background-color: #f3f4f6;
+    }
+    .packages {
+      display: none;
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      color: #1e3a8a;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      font-size: 1.1rem;
+      color: #1e40af;
+      margin-bottom: 1rem;
+    }
+    .card button {
+      background: #2563eb;
+      color: white;
+      border-radius: 10px;
+      padding: 0.6rem 1.5rem;
+      box-shadow: none;
+      font-size: 1rem;
+    }
+    footer {
+      margin-top: 2rem;
+      color: white;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #bfdbfe;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ukurasa wa Mwanzo -->
+  <div id="login">
+    <h1>Karibu Kuruthumu WiFi</h1>
+    <p>Huduma ya intaneti ya kuaminika na ya bei nafuu.</p>
+    <button onclick="enterSite()">Ingia</button>
+  </div>
+
+  <!-- Ukurasa wa Vifurushi -->
+  <div class="packages" id="packages">
+    <h2 style="font-size:2rem; margin-bottom:1.5rem;">Chagua Kifurushi Chako</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>1 Siku</h3>
+        <p>Tsh 1000</p>
+        <button onclick="buy('1 Siku', 1000)">Nunua Sasa</button>
+      </div>
+      <div class="card">
+        <h3>Wiki 1</h3>
+        <p>Tsh 7000</p>
+        <button onclick="buy('Wiki 1', 7000)">Nunua Sasa</button>
+      </div>
+      <div class="card">
+        <h3>Mwezi 1</h3>
+        <p>Tsh 10000</p>
+        <button onclick="buy('Mwezi 1', 10000)">Nunua Sasa</button>
+      </div>
+    </div>
+    <footer>
+      📞 Wasiliana nasi: <a href="tel:0788167292">0788 167 292</a>
+    </footer>
+  </div>
+
+  <script>
+    function enterSite() {
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('packages').style.display = 'block';
+      document.body.style.background = 'linear-gradient(to bottom right, #3b82f6, #1e3a8a)';
+    }
+    function buy(plan, price) {
+      const message = `Ningependa kununua kifurushi cha ${plan} kwa Tsh ${price}.`;
+      const url = `https://wa.me/255788167292?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
